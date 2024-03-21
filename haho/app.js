@@ -1,39 +1,24 @@
 const express = require('express');
+const bodyParser = require("body-parser");
+const models = require("./models/index.js");
+
 const app = express();
-const session = require('express-session');
-const MySQLStore = require('express-mysql-session')(session);
-const bodyParser = require('body-parser');
 
-const indexRouter = require('./routes/index');
-const authRouter = require('./routes/auth');
 
-const port = 3000;
+const indexRouter = require('./routes/index.route.js');
+const authRouter = require('./routes/auth.route.js');
 
-const config = {
-    host:'localhost',
-    port: 3306,
-    user: 'root',
-    password: '1234',
-    database: 'frist'
-};
+const port = 8000;
 
-const sessionStore = new MySQLStore(config);
+models.sequelize.sync().then( () => {
+    console.log("DB 연결 성공");
+}).catch(err => {
+    console.log("연결 실패");
+    console.log(err);
+});
 
-app.use(bodyParser.urlencoded({ extended: true }))
-
-app.use(
-    session({
-        secret: "black",
-        resave: false,
-        saveUninitialized: true,
-        store: sessionStore
-    })
-);
-
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.engine('html', require('ejs').renderFile);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
