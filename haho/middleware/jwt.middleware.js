@@ -1,0 +1,32 @@
+const jwt = require('jsonwebtoken');
+
+const secretKey = 'apple';
+
+module.exports.generateToken = async (userId) => {
+    try {
+        const token = jwt.sign({userId: userId}, secretKey, { expiresIn: '1h'});
+        return token;
+    } catch (err) {
+        console.log("generate token error ==> ", err);
+        return err;
+    }
+};
+
+module.exports.verifyToken = async (req, res, next) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        if(!token) {
+            return res.status(404).json({msg : '로그인이 필요합니다.'});
+        }
+        jwt.verify(token, secretKey, (err, decoded) => {
+            if (err) {
+                return res.status(403).json({ msg: "토큰 인증에 실패했습니다."});
+            }
+            req.userId = decoded.userId;
+            next();
+        });
+    } catch (err) {
+        console.log("verify token error ==> ", err);
+        return res.status(500).json({msg: '서버 오류'});
+    }
+}
