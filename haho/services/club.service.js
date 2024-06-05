@@ -68,7 +68,6 @@ class Clubs {
 
             if(!club) return null;
 
-            await club.save();
             return club;
         } catch (err) {
             return null;
