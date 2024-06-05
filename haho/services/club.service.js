@@ -60,18 +60,12 @@ class Clubs {
 
     async findAdmin(userId) {
         try {
-            const club = await Club.findAll({
-                where: {
-                    admin_list: {
-                        where: Sequelize.literal(`JSON_SEARCH(admin_list, 'one', '${userId}') IS NOT NULL`)
-                    }
-                }
+            const clubs = await Club.findAll({
+                where: Sequelize.literal(`JSON_SEARCH(admin_list, 'one', '${userId}') IS NOT NULL`)
             });
-            console.log(club);
-            if(!club) return null;
-
-            return club;
+            return clubs;
         } catch (err) {
+            console.error('Error finding admin clubs:', err);
             return null;
         }
     }
