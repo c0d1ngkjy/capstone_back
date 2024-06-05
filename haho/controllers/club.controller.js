@@ -10,7 +10,7 @@ module.exports.register = async(req, res, next) => {
     const decodedToken = await decodeToken(token);
     console.log(decodedToken);
     const userId = decodedToken.id;
-
+    console.log(userId);
     const clubs = new Clubs();
     const club = await clubs.createClub(name, school, location, description, userId);
 

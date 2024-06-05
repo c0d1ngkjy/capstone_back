@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true,
         },
         admin_list: {
-            type: DataTypes.STRING(40),
+            type: DataTypes.JSON,
             allowNull: false,
         },
         image: {

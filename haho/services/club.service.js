@@ -9,7 +9,7 @@ class Clubs {
                 school: school,
                 location: location,
                 description: description,
-                admin_list: userId
+                admin_list: [userId]
             })
             return club;
         } catch(err) {
