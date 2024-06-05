@@ -5,7 +5,7 @@ const { decodeToken } = require("../middleware/jwt.middleware.js");
 module.exports.register = async(req, res, next) => {
     const { name, school, location, description} = req.body;
     
-    const token = req.headers.Authorization.split(' ')[1];
+    const token = req.headers.Authorization;
     console.log(token);
     const decodedToken = await decodeToken(token);
     console.log(decodedToken);
