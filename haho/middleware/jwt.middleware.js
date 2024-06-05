@@ -23,7 +23,7 @@ module.exports.decodeToken = async (token) => {
 
 module.exports.verifyToken = async (req, res, next) => {
     try {
-        const token = req.headers.authorization.split(' ')[1];
+        const token = req.headers.authorization;
         if(!token) {
             return res.status(404).json({msg : '로그인이 필요합니다.'});
         }
