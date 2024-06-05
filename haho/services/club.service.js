@@ -60,11 +60,10 @@ class Clubs {
 
     async findAdmin(userId) {
         try {
-            const userid = String(userId);
             const club = await Club.findAll({
                 where: {
                     admin_list: {
-                        [Op.contains]: [userid]
+                        where: Sequelize.literal(`JSON_SEARCH(admin_list, 'one', '${userId}') IS NOT NULL`)
                     }
                 }
             });
