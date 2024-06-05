@@ -60,10 +60,11 @@ class Clubs {
 
     async findAdmin(userId) {
         try {
+            const userid = String(userId);
             const club = await Club.findAll({
                 where: {
                     admin_list: {
-                        [Op.contains]: [userId]
+                        [Op.contains]: [userid]
                     }
                 }
             });
