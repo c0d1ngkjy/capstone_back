@@ -63,7 +63,7 @@ class Clubs {
             const club = await Club.findAll({
                 where: {
                     admin_list: {
-                        [Op.and]: Sequelize.literal(`JSON_CONTAINS(admin_list, '"${userId}"', '$')`)
+                        [Op.contains]: userId
                     }
                 }
             });
