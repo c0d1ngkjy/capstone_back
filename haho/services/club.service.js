@@ -1,4 +1,4 @@
-const { Club } = require("../models");
+const { Club, Sequelize } = require("../models");
  
 class Clubs {
     
