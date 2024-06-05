@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const models = require("./models/index.js");
 const cors = require("cors");
+const path = require('path');
 
 const app = express();
 
@@ -21,6 +22,7 @@ models.sequelize.sync().then( () => {
 });
 
 app.use(cors());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
