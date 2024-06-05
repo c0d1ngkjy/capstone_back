@@ -58,5 +58,22 @@ class Clubs {
         }
     }
 
+    async findAdmin(userId) {
+        try {
+            const club = await Club.findAll({
+                where: {
+                    admin_list: userId
+                }
+            });
+
+            if(!club) return null;
+
+            await club.save();
+            return club;
+        } catch (err) {
+            return null;
+        }
+    }
+
 };
 module.exports = Clubs;

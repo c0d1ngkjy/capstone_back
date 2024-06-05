@@ -6,11 +6,9 @@ module.exports.register = async(req, res, next) => {
     const { name, school, location, description} = req.body;
     
     const token = req.headers.authorization;
-    console.log(token);
     const decodedToken = await decodeToken(token);
-    console.log(decodedToken);
     const userId = decodedToken.payload.id;
-    console.log(userId);
+    
     const clubs = new Clubs();
     const club = await clubs.createClub(name, school, location, description, userId);
 
@@ -54,5 +52,19 @@ module.exports.uploadImageClub = async (req, res, next) => {
         if (updateUser) res.status(200).json({ msg: "프로필 이미지 업데이트", userData: updateUser });
         else return res.status(404).json({ msg: "프로필 이미지 업데이트 오류" });
     });
+};
+
+module.exports.findAdmin = async (req, res, next) => {
+
+    const token = req.headers.authorization;
+    const decodedToken = await decodeToken(token);
+    const userId = decodedToken.payload.id;
+
+    const clubs = new Clubs();
+    
+    const findAdmin = await clubs.findAdmin(userId);
+
+    if (findAdmin) res.status(200).json({ msg: "나의 관리자 리스트", adminlist: findAdmin});
+    else return res.status(404).json({ msg: "관리자 리스트 불러오기 오류"})
 };
 
