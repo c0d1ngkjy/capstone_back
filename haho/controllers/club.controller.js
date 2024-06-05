@@ -65,7 +65,7 @@ module.exports.findAdmin = async (req, res, next) => {
     
     const findAdmin = await clubs.findAdmin(userId);
 
-    if (findAdmin) res.status(200).json({ msg: "나의 관리자 리스트", adminlist: findAdmin});
+    if (findAdmin) res.status(200).json({ msg: "관리자 동아리 리스트", clubList: findAdmin});
     else return res.status(404).json({ msg: "관리자 리스트 불러오기 오류"})
 };
 
