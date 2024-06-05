@@ -63,7 +63,7 @@ class Clubs {
             const club = await Club.findAll({
                 where: {
                     admin_list: {
-                        [Op.contains]: userId
+                        [Op.contains]: [userId]
                     }
                 }
             });
