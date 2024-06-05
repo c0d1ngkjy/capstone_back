@@ -59,7 +59,7 @@ module.exports.findAdmin = async (req, res, next) => {
     const token = req.headers.authorization;
     const decodedToken = await decodeToken(token);
     const userId = decodedToken.payload.id;
-    consolog.log(userId);
+    consolo.log(userId);
 
     const clubs = new Clubs();
     
