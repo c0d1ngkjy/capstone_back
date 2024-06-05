@@ -2,13 +2,15 @@ const { User } = require("../models");
 
 class Signup {
 
-    async createUser(userId, userPassword, userEmail, userPhonenumber) {
+    async createUser(id, password, email, phone, school, major) {
         try {
             const user = await User.create({
-                userId: userId,
-                userPassword: userPassword,
-                userEmail: userEmail,
-                userPhonenumber: userPhonenumber,
+                id: id,
+                password: password,
+                email: email,
+                phone: phone,
+                school: school,
+                major: major
             })
             return user;
         } catch (err) {

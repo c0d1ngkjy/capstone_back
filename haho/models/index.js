@@ -37,8 +37,14 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-const User = require("./users")(sequelize, Sequelize);
+const User = require("./user")(sequelize, Sequelize);
 db.User = User;
+
+const Club = require("./club")(sequelize, Sequelize);
+db.Club = Club;
+
+Club.hasMany(User, { foreignKey: 'club_id' });
+User.belongsTo(Club, { foreignKey: 'club_id' });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

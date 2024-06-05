@@ -2,10 +2,10 @@ const { User } = require("../models");
 
 class Login {
     
-    async selectUser(userId, userPassword) {
+    async selectUser(id, password) {
         try {
             const userLogin = await User.findOne({
-                where: { userId, userPassword } 
+                where: { id, password } 
             });
             if (userLogin === null) {
                 return null;
