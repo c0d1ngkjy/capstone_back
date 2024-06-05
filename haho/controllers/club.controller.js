@@ -45,7 +45,7 @@ module.exports.uploadImageClub = async (req, res, next) => {
         
         const { clubId } = req.body;
         const clubs = new Clubs();
-        const profileImage = `/uploads/${req.file.filename}`;
+        const profileImage = `http://3.35.114.100:8080/uploads/${req.file.filename}`;
 
         const updateUser = await clubs.updateImage(clubId, profileImage);
 
