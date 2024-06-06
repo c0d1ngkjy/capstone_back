@@ -12,10 +12,9 @@ class Clubs {
                 admin_list: [userId]
             })
             const user = await User.findByPk(userId);
-            if (user) {
-                user.clubId = club.id;
-                await user.save();
-            }
+            user.club_id = club.id;
+            await user.save();
+
             //위에 만들어진 클럽의 clubId를 userId 로 찾은 유저테이블 clubid컬럼에 추가
             return club;
         } catch(err) {
