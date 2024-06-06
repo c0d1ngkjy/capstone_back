@@ -33,7 +33,7 @@ class Users {
 
     async findMember(clubId) {
         try {
-            const member = await Member.findByPk(clubId);
+            const member = await Member.findOne(clubId);
             return member;
         } catch (err) {
             console.log(err);
