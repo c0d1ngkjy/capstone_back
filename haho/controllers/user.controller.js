@@ -1,4 +1,3 @@
-const { User } = require("../models/index.js");
 const Users = require("../services/user.service.js");
 const upload = require("../middleware/multer.middleware.js");
 

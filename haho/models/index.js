@@ -47,7 +47,7 @@ db.Club = Club;
 const Calendar = require("./calendar")(sequelize, Sequelize);
 db.Calendar = Calendar;
 
-const Member = require("./calendar")(sequelize, Sequelize);
+const Member = require("./member")(sequelize, Sequelize);
 db.Member = Member;
 
 Club.hasMany(User, { foreignKey: 'club_id' });
