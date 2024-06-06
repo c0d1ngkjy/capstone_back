@@ -31,6 +31,16 @@ class Users {
         }
     }
 
+    async findMember(clubId) {
+        try {
+            const member = await Member.findAll(clubId);
+            return member;
+        } catch (err) {
+            console.log(err);
+            return null;
+        }
+    }
+
     async updateUser(clubId, userId, updateData) {
         try {
             const user = await User.findOne({

@@ -23,6 +23,16 @@ module.exports.addMember = async(req, res, next) => {
     else return res.status(404).json({ msg:"부원 추가 오류" });
 };
 
+module.exports.findMember = async(req, res, next) => {
+    const { clubId } = req.body;
+
+    const members = new Users();
+    const findMember = await members.findMember(clubId);
+
+    if (findMember) res.status(200).json({ msg: "동아리 멤버 조회", findMember: findMember});
+    else return res.status(404).json({ msg: "조회할 멤버가 없습니다."});
+};
+
 module.exports.updateUser = async(req, res, next) => {
     const { clubId, userId, updateData } = req.body;
 
