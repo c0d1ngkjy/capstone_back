@@ -47,9 +47,9 @@ module.exports.uploadImageClub = async (req, res, next) => {
         const clubs = new Clubs();
         const profileImage = `http://3.35.114.100:8080/uploads/${req.file.filename}`;
 
-        const updateUser = await clubs.updateImage(clubId, profileImage);
+        const updateClub = await clubs.updateImage(clubId, profileImage);
 
-        if (updateUser) res.status(200).json({ msg: "프로필 이미지 업데이트", userData: updateUser });
+        if (updateClub) res.status(200).json({ msg: "프로필 이미지 업데이트", clubData: updateUser });
         else return res.status(404).json({ msg: "프로필 이미지 업데이트 오류" });
     });
 };
