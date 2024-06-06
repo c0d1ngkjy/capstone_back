@@ -26,6 +26,7 @@ class Users {
             })
             return member;
         } catch (err) {
+            console.log(err);
             return null;
         }
     }
