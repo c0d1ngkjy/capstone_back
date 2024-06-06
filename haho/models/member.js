@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
     let Member = sequelize.define("member", {
         member_id: {
-            type: DataTypes.STRING(15),
-            allowNull: false,
+            type: DataTypes.INTEGER,
             primaryKey: true,
+            autoIncrement: true,
         },
         name: {
             type: DataTypes.STRING(30),
