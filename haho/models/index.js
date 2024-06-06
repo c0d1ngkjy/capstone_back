@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
+const calendar = require('./calendar');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
@@ -43,8 +44,14 @@ db.User = User;
 const Club = require("./club")(sequelize, Sequelize);
 db.Club = Club;
 
+const Calendar = require("./calendar")(sequelize, Sequelize);
+db.Calendar = Calendar;
+
 Club.hasMany(User, { foreignKey: 'club_id' });
 User.belongsTo(Club, { foreignKey: 'club_id' });
+
+Club.hasMany(Calendar, { foreignKey: 'club_id' });
+Calendar.belongsTo(Club, { foreignKey: 'club_id' });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

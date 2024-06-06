@@ -1,4 +1,4 @@
-const { Club, Sequelize } = require("../models");
+const { Club, User, Sequelize } = require("../models");
  
 class Clubs {
     
@@ -11,6 +11,12 @@ class Clubs {
                 description: description,
                 admin_list: [userId]
             })
+            const user = await User.findByPk(userId);
+            if (user) {
+                user.clubId = club.id;
+                await user.save();
+            }
+            //위에 만들어진 클럽의 clubId를 userId 로 찾은 유저테이블 clubid컬럼에 추가
             return club;
         } catch(err) {
             console.log(err);
