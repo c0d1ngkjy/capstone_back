@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Member} = require("../models");
  
 class Users {
     
@@ -13,16 +13,18 @@ class Users {
         }
     }
 
-    async addUser(userId, clubId) {
+    async addUser(name, email, phone, school, major, studentId, clubId) {
         try {
-            const user = await User.findByPk(userId);
-
-            if(!user) return null;
-
-            user.club_id = clubId;
-
-            await user.save();
-            return user;
+            const member = await Member.create({
+                name: name,
+                email: email,
+                phone: phone,
+                school: school,
+                major: major,
+                studentId: studentId,
+                club_id: clubId
+            })
+            return member;
         } catch (err) {
             return null;
         }

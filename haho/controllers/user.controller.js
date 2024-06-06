@@ -13,13 +13,14 @@ module.exports.findUser = async(req, res, next) => {
 
 };
 
-module.exports.addUser = async(req, res, next) => {
-    const { userId, clubId } = req.body;
+//member 컨트롤러로 수정
+module.exports.addMember = async(req, res, next) => {
+    const { name, email, phone, school, major, studentId, clubId } = req.body;
 
-    const users = new Users();
-    const addUser = await users.addUser(userId, clubId);
+    const member = new Users();
+    const addMember = await member.addUser(name, email, phone, school, major, studentId, clubId);
 
-    if(addUser) res.status(200).json({msg:"부원 클럽 추가", addUser: addUser})
+    if(addMember) res.status(200).json({msg:"부원 클럽 추가", addMember: addMember})
     else return res.status(404).json({ msg:"부원 추가 오류" });
 };
 
