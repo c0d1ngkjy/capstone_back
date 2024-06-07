@@ -1,6 +1,6 @@
 const Members = require("../services/member.service.js");
 
-//member 컨트롤러로 수정
+
 module.exports.addMember = async(req, res, next) => {
     const { name, email, phone, school, major, studentId, clubId } = req.body;
 
@@ -11,7 +11,7 @@ module.exports.addMember = async(req, res, next) => {
     else return res.status(404).json({ msg:"부원 추가 오류" });
 };
 
-//member 컨트롤러로 수정
+
 module.exports.findMember = async(req, res, next) => {
     const { clubId } = req.body;
 
@@ -22,7 +22,7 @@ module.exports.findMember = async(req, res, next) => {
     else return res.status(404).json({ msg: "조회할 멤버가 없습니다."});
 };
 
-//member 컨트롤러로 수정
+
 module.exports.updateMember = async(req, res, next) => {
     const { clubId, memberId, updateData } = req.body;
 
@@ -33,7 +33,7 @@ module.exports.updateMember = async(req, res, next) => {
     else return res.status(404).json({ msg: "부원 업데이트 오류" });
 };
 
-//member 컨트롤러로 수정
+
 module.exports.deleteMember = async(req, res, next) => {
     const { clubId, memberId } = req.body;
 

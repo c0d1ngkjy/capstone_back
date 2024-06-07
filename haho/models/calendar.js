@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
             antoIncrement: true,
         },
         date: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING(30),
             allowNull: false,
         },
         title: {
