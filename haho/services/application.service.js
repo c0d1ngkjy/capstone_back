@@ -5,8 +5,12 @@ class Applications {
     async addApplication(title, questionList, link, from, to, clubId) {
         try {
             const application = await Application.create({
-                title, questionList, from, to, link,
-                club_id : clubId
+                title,
+                questionList,
+                from,
+                to,
+                link,
+                club_id: parseInt(clubId)
             });
             return application;
         } catch (err) {

@@ -13,9 +13,10 @@ module.exports.addApplication = async(req, res, next) => {
         }
         return result;
     }
-    
+
     const link = generateRandomString(30);
 
+    console.log(clubId);
     const applications = new Applications();
     const application = await applications.addApplication(title, questionList, from, to, clubId, link);
 
