@@ -2,8 +2,8 @@ module.exports = function(sequelize, DataTypes) {
     let Calendar = sequelize.define("calendar", {
         calendar_id: {
             type: DataTypes.INTEGER,
-            primarKey: true,
-            antoIncrement: true,
+            primaryKey: true,
+            autoIncrement: true,
         },
         date: {
             type: DataTypes.STRING(30),
