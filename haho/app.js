@@ -10,7 +10,8 @@ const indexRouter = require('./routes/index.route.js');
 const authRouter = require('./routes/auth.route.js');
 const clubRouter = require('./routes/club.route.js');
 const userRouter = require('./routes/user.route.js');
-const calendar = require('./routes/calendar.route.js');
+const calendarRouter = require('./routes/calendar.route.js');
+const memberRouter = require('./routes/member.route.js');
 
 const port = 8080;
 
@@ -31,7 +32,8 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/club', clubRouter);
 app.use('/user', userRouter);
-app.use('/calendar', calendar);
+app.use('/calendar', calendarRouter);
+app.use('/member', memberRouter);
 
 app.listen(port, () => {
     console.log(`${port} 포트에서 실행 중입니다.`);

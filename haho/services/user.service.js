@@ -5,40 +5,10 @@ class Users {
     async findUser(clubId) {
         try {
             const user = await User.findAll({
-                where: {club_id : clubId},
+                where: { club_id : clubId },
             });
             return user;
         } catch (err) {
-            return null;
-        }
-    }
-
-    async addUser(name, email, phone, school, major, studentId, clubId) {
-        try {
-            const member = await Member.create({
-                name: name,
-                email: email,
-                phone: phone,
-                school: school,
-                major: major,
-                studentId: studentId,
-                club_id: clubId
-            })
-            return member;
-        } catch (err) {
-            console.log(err);
-            return null;
-        }
-    }
-
-    async findMember(clubId) {
-        try {
-            const member = await Member.findAll({
-                where: { club_id: clubId }
-            })
-            return member;
-        } catch (err) {
-            console.log(err);
             return null;
         }
     }

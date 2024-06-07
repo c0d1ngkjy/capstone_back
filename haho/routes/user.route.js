@@ -4,10 +4,8 @@ const user = require("../controllers/user.controller.js");
 const router = express.Router();
 
 router.post("/findUser", user.findUser); // club으로 이동
-router.post("/addMember", user.addMember); // member
-router.post("/findMember", user.findMember); // member
-router.post("/updateUser", user.updateUser);
-router.post("/deleteUser", user.deleteUser);
+router.post("/updateUser", user.updateUser); 
+router.post("/deleteUser", user.deleteUser); 
 router.post("/upload", user.uploadImage);
 
 module.exports = router;
