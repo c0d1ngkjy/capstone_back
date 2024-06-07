@@ -1,4 +1,4 @@
-const Members = require("../services/user.service.js");
+const Members = require("../services/member.service.js");
 
 //member 컨트롤러로 수정
 module.exports.addMember = async(req, res, next) => {
