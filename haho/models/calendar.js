@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         writer: {
             type: DataTypes.STRING(20),
-            allowNull: false,
+            allowNull: true,
         },
         club_id: {
             type: DataTypes.INTEGER,
