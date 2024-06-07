@@ -33,7 +33,9 @@ class Users {
 
     async findMember(clubId) {
         try {
-            const member = await Member.findOne(clubId);
+            const member = await Member.findAll({
+                where: { club_id: clubId }
+            })
             return member;
         } catch (err) {
             console.log(err);
