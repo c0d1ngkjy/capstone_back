@@ -22,3 +22,14 @@ module.exports.getApplication = async(req, res, next) => {
     else return res.status(500).json({ msg: "신청서 가져오기 실패" });
 
 };
+
+module.exports.deleteApplication = async(req, res, next) => {
+    const { applicationId } = req.body;
+
+    const applications = new Applications();
+    const application = await applications.deleteApplication(applicationId);
+
+    if(application) return res.status(200).json({msg : "신청서 삭제", deleteApplication : application})
+    else return res.status(500).json({ msg: "신청서 삭제실패" });
+
+};

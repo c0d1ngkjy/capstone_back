@@ -26,6 +26,22 @@ class Applications {
             return null;
         }
     };
+
+    async deleteApplication(applicationId) {
+        try {
+            const application = await Application.findByPk(applicationId);
+
+            if (!application) return null;
+
+            await application.destroy();
+            return application;
+        } catch (err) {
+            console.log(err);
+            return null;
+        }
+    };
+
+    
 };
 
 module.exports = Applications;
