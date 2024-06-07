@@ -14,6 +14,18 @@ class Applications {
             return null;
         }
     }
+
+    async getApplication(clubId) {
+        try {
+            const application = await Application.findAll({
+                where: { club_id: clubId }
+            });
+            return application;
+        } catch (err) {
+            console.log(err);
+            return null;
+        }
+    };
 };
 
 module.exports = Applications;

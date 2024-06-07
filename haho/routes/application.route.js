@@ -4,5 +4,6 @@ const application = require('../controllers/application.controller.js');
 const router = express.Router();
 
 router.post("/addApplication", application.addApplication); //create하기
+router.post("/get", application.getApplication); //create하기
 
 module.exports = router;
