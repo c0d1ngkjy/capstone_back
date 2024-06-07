@@ -10,7 +10,7 @@ class Applications {
                 from,
                 to,
                 link,
-                club_id: parseInt(clubId)
+                club_id: clubId
             });
             return application;
         } catch (err) {
