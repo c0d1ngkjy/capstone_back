@@ -4,7 +4,7 @@ module.exports.createCalendar = async(req, res, next) => {
     const { date, title, description, clubId } = req.body;
 
     const calendar = new Calendars();
-    const calendars = await calendars.createCalendar(date, title, description, clubId);
+    const calendars = await calendar.createCalendar(date, title, description, clubId);
 
     if (calendars) res.status(200).json({ msg: "일정 추가", calendarData: calendars });
     else return res.status(404).json({ msg: "일정 추가 오류" });
