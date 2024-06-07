@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
             }
         }, 
         image: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(500),
             allowNull: true,
         }, 
         studentId: {

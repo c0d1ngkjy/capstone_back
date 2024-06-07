@@ -44,12 +44,12 @@ module.exports.getKakaoUserInfo = async (req, res, next) => {
 };
 
 module.exports.register = async (req, res, next) => {
-    const { id, name, email, phone, school, major, studentId } = req.body;
+    const { id, name, email, phone, school, major, studentId, image } = req.body;
     const kakaoService = new KakaoService();
 
     try {
         // Step 1: Register user in our database
-        const userData = { id, name, email, phone, school, major, studentId };
+        const userData = { id, name, email, phone, school, major, studentId, image };
         const user = await kakaoService.registerUser(userData);
 
         // Step 2: Generate token for the user
