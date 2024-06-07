@@ -18,7 +18,7 @@ module.exports.addApplication = async(req, res, next) => {
 
     console.log(clubId);
     const applications = new Applications();
-    const application = await applications.addApplication(title, questionList, from, to, clubId, link);
+    const application = await applications.addApplication(title, questionList, from, to, link, clubId);
 
     if(application) return res.status(200).json({msg : "신청서 생성", applicationData : application})
     else return res.status(500).json({ msg: "신청서 생성 오류" });

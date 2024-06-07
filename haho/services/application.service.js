@@ -5,11 +5,11 @@ class Applications {
     async addApplication(title, questionList, link, from, to, clubId) {
         try {
             const application = await Application.create({
-                title,
-                questionList,
-                from,
-                to,
-                link,
+                title: title,
+                questionList: questionList,
+                from: from,
+                to: to,
+                link: link,
                 club_id: clubId
             });
             return application;
