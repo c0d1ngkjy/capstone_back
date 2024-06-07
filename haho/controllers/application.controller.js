@@ -1,6 +1,6 @@
 const Applications = require("../services/application.service.js");
 
-module.exports.test = async(req, res, next) => {
+module.exports.addApplication = async(req, res, next) => {
     const { title, dateRange, questionList, clubId } = req.body;
     const { from, to } = dateRange;
 

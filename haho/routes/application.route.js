@@ -3,6 +3,6 @@ const application = require('../controllers/application.controller.js');
 
 const router = express.Router();
 
-router.post("/register", application.test);
+router.post("/addApplication", application.addApplication);
 
 module.exports = router;
