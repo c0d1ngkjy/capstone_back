@@ -4,8 +4,20 @@ module.exports.addApplication = async(req, res, next) => {
     const { title, dateRange, questionList, clubId } = req.body;
     const { from, to } = dateRange;
 
+    function generateRandomString(length) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+        let result = '';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result;
+    }
+    
+    const link = generateRandomString(30);
+
     const applications = new Applications();
-    const application = await applications.addApplication(title, questionList, from, to, clubId);
+    const application = await applications.addApplication(title, questionList, from, to, clubId, link);
 
     if(application) return res.status(200).json({msg : "신청서 생성", applicationData : application})
     else return res.status(500).json({ msg: "신청서 생성 오류" });

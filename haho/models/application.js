@@ -21,6 +21,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.JSON,
             allowNull: false,
         },
+        link: {
+            type: DataTypes.STRING(30),
+            allowNull: false
+        },
         club_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
