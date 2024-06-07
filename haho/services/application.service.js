@@ -2,7 +2,7 @@ const { Application } = require("../models");
 
 class Applications {
 
-    async addApplication(title, questionList, link, from, to, clubId) {
+    async addApplication(title, questionList, from, to, link, clubId) {
         try {
             const application = await Application.create({
                 title: title,
