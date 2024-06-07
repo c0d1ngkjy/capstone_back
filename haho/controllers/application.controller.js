@@ -18,7 +18,7 @@ module.exports.getApplication = async(req, res, next) => {
     const applications = new Applications();
     const application = await applications.getApplication(clubId);
 
-    if(application) return res.status(200).json({msg : "신청서 생성", applicationData : application})
-    else return res.status(500).json({ msg: "신청서 생성 오류" });
+    if(application) return res.status(200).json({msg : "신청서 가져오기 성공", applicationData : application})
+    else return res.status(500).json({ msg: "신청서 가져오기 실패" });
 
 };

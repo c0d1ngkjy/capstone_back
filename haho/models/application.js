@@ -2,8 +2,8 @@ module.exports = function(sequelize, DataTypes) {
     let Application = sequelize.define("application", {
         application_id: {
             type: DataTypes.INTEGER,
-            primarKey: true,
-            antoIncrement: true,
+            primaryKey: true,
+            autoIncrement: true,
         },
         from: {
             type: DataTypes.STRING(30),
@@ -35,6 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         tableName: "application",
         charset: 'utf8mb4',
         collate: 'utf8mb4_general_ci'
-    })
+    });
+    
     return Application;
 } 
