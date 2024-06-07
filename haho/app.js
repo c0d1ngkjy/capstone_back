@@ -12,7 +12,7 @@ const clubRouter = require('./routes/club.route.js');
 const userRouter = require('./routes/user.route.js');
 const calendarRouter = require('./routes/calendar.route.js');
 const memberRouter = require('./routes/member.route.js');
-const applicationRouter = require('./routes/member.route.js');
+const applicationRouter = require('./routes/application.route.js');
 
 const port = 8080;
 
