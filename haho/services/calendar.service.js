@@ -1,4 +1,4 @@
-const Calendar = require("../models");
+const { Calendar } = require("../models");
 
 class Calendars {
 
