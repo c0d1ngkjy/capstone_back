@@ -45,6 +45,17 @@ class Applications {
         }
     };
 
+    async getApplicationFromLink(link) {
+        try{
+            const application = await Application.findOne({
+                where: {link: link}
+            });
+            return application;
+        } catch (err) {
+            return null;
+        }
+    }
+
     
 };
 

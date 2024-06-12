@@ -46,3 +46,13 @@ module.exports.deleteApplication = async(req, res, next) => {
     else return res.status(500).json({ msg: "신청서 삭제실패" });
 
 };
+
+module.exports.getApplicationFromLink = async(req, res, next) => {
+    const { link } = req.body;
+
+    const applications = new Applications();
+    const application = await applications.getApplicationFromLink(link);
+    
+    if (application) return res.status(200).json({ msg: "신청서 불러오기", applicationData: application})
+    else return res.status(500).json({ msg: "신청서 불러오기 오류" });
+}
