@@ -3,7 +3,7 @@ const Applications = require("../services/application.service.js");
 module.exports.addApplication = async(req, res, next) => {
     const { title, dateRange, interviewDateRange, questionList, clubId } = req.body;
     const { from, to } = dateRange;
-    const { interviewFrom, interviewTo } = interviewDateRange;
+    const { from: interviewFrom, to: interviewTo } = interviewDateRange;
 
     function generateRandomString(length) {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
