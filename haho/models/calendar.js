@@ -17,10 +17,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(300),
             allowNull: true,
         },
-        writer: {
-            type: DataTypes.STRING(20),
-            allowNull: true,
-        },
         club_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
