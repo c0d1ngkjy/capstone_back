@@ -55,7 +55,7 @@ db.Application = Application;
 const Answer = require("./answer")(sequelize, Sequelize);
 db.Answer = Answer;
 
-const Receipt = require("./answer")(sequelize, Sequelize);
+const Receipt = require("./receipt")(sequelize, Sequelize);
 db.receipt = Receipt;
 
 
