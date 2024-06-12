@@ -1,5 +1,5 @@
 const { Receipt } = require("../models");
- 
+
 class Receipts {
     
     async addReceipt(type, history, description, receiptDate, amount, clubId) {
@@ -11,7 +11,7 @@ class Receipts {
                 receiptDate,
                 amount,
                 club_id: clubId
-            })
+            });
             return receipt;
         } catch (err) {
             console.log(err);
@@ -45,6 +45,7 @@ class Receipts {
             await receipt.destroy();
             return receipt;
         } catch (err) {
+            console.log(err);
             return null;
         }
     }
