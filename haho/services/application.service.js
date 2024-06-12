@@ -71,6 +71,16 @@ class Applications {
         }
     }
 
+    async getAnswer(answerId) {
+        try{
+            const answer = await Answer.findAll({
+                where: { answer_id: answerId }
+            });
+            return answer;
+        } catch (err) {
+            return null;
+        }
+    }
     
 };
 

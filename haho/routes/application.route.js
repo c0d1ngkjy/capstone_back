@@ -8,5 +8,6 @@ router.post("/get", application.getApplication);
 router.post("/delete", application.deleteApplication);
 router.post("/getlink", application.getApplicationFromLink);
 router.post("/addAnswer", application.addAnswer);
+router.post("/getAnswer", application.getAnswer);
 
 module.exports = router;
