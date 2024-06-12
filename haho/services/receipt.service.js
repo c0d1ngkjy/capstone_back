@@ -5,11 +5,11 @@ class Receipts {
     async addReceipt(type, history, description, receiptDate, amount, clubId) {
         try {
             const receipt = await Receipt.create({
-                type,
-                history,
-                description,
-                receiptDate,
-                amount,
+                type: type,
+                history: history,
+                description: description,
+                receiptDate: receiptDate,
+                amount: amount,
                 club_id: clubId
             });
             return receipt;
