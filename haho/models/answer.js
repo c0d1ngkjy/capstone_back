@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         interviewDate: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(100),
             allowNull: false,
         },
         application_id: {

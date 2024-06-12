@@ -15,7 +15,7 @@ const memberRouter = require('./routes/member.route.js');
 const applicationRouter = require('./routes/application.route.js');
 const receiptRouter = require('./routes/receipts.route.js');
 
-const port = 443;
+const port = 8080;
 
 models.sequelize.sync().then( () => {
     console.log("DB 연결 성공");
