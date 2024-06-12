@@ -7,7 +7,7 @@ class KakaoService {
         const params = new URLSearchParams();
         params.append('grant_type', 'authorization_code');
         params.append('client_id', 'ea9efa52990ee6b03bb563d97e7a297c'); // Replace with your Kakao client ID
-        params.append('redirect_uri', 'https://capstone-37552.web.app/'); // Replace with your Kakao redirect URI
+        params.append('redirect_uri', 'http://localhost:9000/oauth'); // Replace with your Kakao redirect URI https://capstone-37552.web.app/
         params.append('code', code);
 
         try {
