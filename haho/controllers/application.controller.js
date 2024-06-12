@@ -62,7 +62,7 @@ module.exports.addAnswer = async(req, res, next) => {
     const { answerList, interviewDate, application_id } = req.body;
 
     const answers = new Applications();
-    const answer = await answers.addAnser(answerList, interviewDate, application_id);
+    const answer = await answers.addAnswer(answerList, interviewDate, application_id);
 
     if (answer) return res.status(200).json({ msg: "답변 데이터", answerData: answer})
     else return res.status(500).json({ msg: "답변 오류" });
