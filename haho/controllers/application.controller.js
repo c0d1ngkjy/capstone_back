@@ -69,10 +69,10 @@ module.exports.addAnswer = async(req, res, next) => {
 };
 
 module.exports.getAnswer = async(req, res, next) => {
-    const { answerId } = req.body;
+    const { applicationId } = req.body;
 
     const answers = new Applications();
-    const answer = await answers.getAnswer(answerId);
+    const answer = await answers.getAnswer(applicationId);
 
     if (answer) return res.status(200).json({ msg: "답변 가져오기", answerData: answer})
     else return res.status(500).json({ msg: "답변 가져오기 오류" });

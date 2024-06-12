@@ -71,10 +71,10 @@ class Applications {
         }
     }
 
-    async getAnswer(answerId) {
+    async getAnswer(applicationId) {
         try{
             const answer = await Answer.findAll({
-                where: { answer_id: answerId }
+                where: { application_id: applicationId }
             });
             return answer;
         } catch (err) {
