@@ -1,6 +1,6 @@
 const { Receipt } = require("../models");
  
-class Members {
+class Receipts {
     
     async addReceipt(type, history, description, receiptDate, amount, clubId) {
         try {
@@ -23,7 +23,7 @@ class Members {
         try {
             const receipt = await Receipt.findAll({
                 where: { club_id: clubId }
-            })
+            });
             return receipt;
         } catch (err) {
             console.log(err);
@@ -50,4 +50,4 @@ class Members {
     }
 
 };
-module.exports = Members;
+module.exports = Receipts;
