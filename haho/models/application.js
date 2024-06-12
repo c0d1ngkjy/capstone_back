@@ -46,7 +46,12 @@ module.exports = function(sequelize, DataTypes) {
         freezeTableName: true,
         tableName: "application",
         charset: 'utf8mb4',
-        collate: 'utf8mb4_general_ci'
+        collate: 'utf8mb4_general_ci',
+        indexes: [
+            {
+                fields: ['application_id']
+            }
+        ]
     });
     
     return Application;

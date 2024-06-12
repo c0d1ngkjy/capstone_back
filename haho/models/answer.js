@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         interviewDate: {
             type: DataTypes.STRING,
-            allowNull: fasle,
+            allowNull: false,
         },
         application_id: {
             type: DataTypes.INTEGER,
@@ -26,7 +26,12 @@ module.exports = function(sequelize, DataTypes) {
         freezeTableName: true,
         tableName: "answer",
         charset: 'utf8mb4',
-        collate: 'utf8mb4_general_ci'
+        collate: 'utf8mb4_general_ci',
+        indexes: [
+            {
+                fields: ['application_id']
+            }
+        ]
     });
     
     return Answer;
