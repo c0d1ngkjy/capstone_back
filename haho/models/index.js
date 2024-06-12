@@ -56,7 +56,7 @@ const Answer = require("./answer")(sequelize, Sequelize);
 db.Answer = Answer;
 
 const Receipt = require("./receipt")(sequelize, Sequelize);
-db.receipt = Receipt;
+db.Receipt = Receipt;
 
 
 Club.hasMany(User, { foreignKey: 'club_id' });
