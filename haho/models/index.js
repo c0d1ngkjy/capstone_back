@@ -55,6 +55,10 @@ db.Application = Application;
 const Answer = require("./answer")(sequelize, Sequelize);
 db.Answer = Answer;
 
+const Receipt = require("./answer")(sequelize, Sequelize);
+db.receipt = Receipt;
+
+
 Club.hasMany(User, { foreignKey: 'club_id' });
 User.belongsTo(Club, { foreignKey: 'club_id' });
 
@@ -69,6 +73,9 @@ Application.belongsTo(Club, { foreignKey: 'club_id' });
 
 Application.hasMany(Answer, { foreignKey: 'application_id' });
 Answer.belongsTo(Application, { foreignKey: 'application_id' });
+
+Club.hasMany(Receipt, { foreignKey: 'club_id' });
+Receipt.belongsTo(Club, { foreignKey: 'club_id' });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
