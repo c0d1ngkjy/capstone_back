@@ -13,6 +13,14 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING(30),
             allowNull: false,
         },
+        interviewFrom: {
+            type: DataTypes.STRING(30),
+            allowNull: false,
+        },
+        interviewTo: {
+            type: DataTypes.STRING(30),
+            allowNull: false,
+        },
         title: {
             type: DataTypes.STRING(100),
             allowNull: false

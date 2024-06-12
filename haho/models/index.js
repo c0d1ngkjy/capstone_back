@@ -53,6 +53,9 @@ db.Member = Member;
 const Application = require("./application")(sequelize, Sequelize);
 db.Application = Application;
 
+const Answer = require("./answer")(sequelize, Sequelize);
+db.Answer = Answer;
+
 Club.hasMany(User, { foreignKey: 'club_id' });
 User.belongsTo(Club, { foreignKey: 'club_id' });
 
@@ -64,6 +67,9 @@ Member.belongsTo(Club, { foreignKey: 'club_id' });
 
 Club.hasMany(Application, { foreignKey: 'club_id' });
 Application.belongsTo(Club, { foreignKey: 'club_id' });
+
+Application.hasMany(Answer, { foreignKey: 'application_id' });
+Answer.belongsTo(Application, { foreignKey: 'application_id' });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

@@ -1,14 +1,16 @@
-const { Application } = require("../models");
+const { Application, Answer } = require("../models");
 
 class Applications {
 
-    async addApplication(title, questionList, from, to, link, clubId) {
+    async addApplication(title, questionList, from, to, interviewFrom, interviewTo, link, clubId) {
         try {
             const application = await Application.create({
                 title: title,
                 questionList: questionList,
                 from: from,
                 to: to,
+                interviewFrom: interviewFrom,
+                interviewTo: interviewTo,
                 link: link,
                 club_id: clubId
             });
@@ -51,6 +53,19 @@ class Applications {
                 where: {link: link}
             });
             return application;
+        } catch (err) {
+            return null;
+        }
+    }
+
+    async addAnswer(answerList, interviewDate, applicationId) {
+        try {
+            const answer = await Answer.create({
+                answerList: [answerList],
+                interviewDate: interviewDate,
+                application_id: applicationId
+            });
+            return answer;
         } catch (err) {
             return null;
         }
