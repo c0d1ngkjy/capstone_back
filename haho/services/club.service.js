@@ -23,6 +23,33 @@ class Clubs {
         }
     };
 
+    async getAdminData(clubId) {
+        try {
+            // Find the club by the provided clubId
+            const club = await Club.findByPk(clubId);
+            if (!club) return null;  // If club not found, return null
+    
+            // Extract the adminList from the club
+            const adminList = club.admin_list;
+            if (!adminList || adminList.length === 0) return [];  // If adminList is empty or null, return an empty array
+    
+            // Fetch the user data for each userId in the adminList
+            const adminDataPromises = adminList.map(async (userId) => {
+                const user = await User.findByPk(userId);
+                return user ? user.toJSON() : null;
+            });
+    
+            // Wait for all promises to resolve and filter out any null values
+            const adminData = (await Promise.all(adminDataPromises)).filter(user => user !== null);
+    
+            return adminData;
+        } catch (err) {
+            console.error('Error getting admin data:', err);
+            return null;
+        }
+    }
+    
+
     async findClub() {
         try {
             const club = await Club.findAll();

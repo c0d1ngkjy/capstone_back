@@ -8,5 +8,6 @@ router.get("/findAll", club.findAll);
 router.post("/addAdmin", club.addAdmin);
 router.post("/upload", club.uploadImageClub);
 router.post("/findAdmin", club.findAdmin);
+router.post("/adminData", club.getAdminData);
 
 module.exports = router;

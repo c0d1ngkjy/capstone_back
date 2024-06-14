@@ -68,3 +68,13 @@ module.exports.findAdmin = async (req, res, next) => {
     else return res.status(404).json({ msg: "관리자 리스트 불러오기 오류"})
 };
 
+module.exports.getAdminData = async (req, res, next) => {
+
+    const { clubId } = req.body; 
+
+    const clubs = new Clubs();
+    const adminData = await clubs.getAdminData(clubId);
+
+    if (adminData) res.status(200).json({ msg: "관리자 추가", adminData: adminData});
+    else return res.status(404).json({ msg: "관리자 추가 오류"});
+};
