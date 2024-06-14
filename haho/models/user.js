@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull:false,
         },
         club_id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.JSON,
             allowNull: true,
             references: {
                 model: 'club',
